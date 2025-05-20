@@ -10,6 +10,7 @@ button {
 }
 
 .aqwdie,
+.d20,
 .d6 {
     width: 100px;
     height: 100px;
@@ -57,6 +58,7 @@ button {
 }
 
 .d6 .circle,
+.d20 .circle,
 .aqwdie .circle {
     margin-top: 10.5px;
     margin-left: 10.5px;

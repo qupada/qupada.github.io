@@ -25,6 +25,27 @@
             }
         }, ((500/x) + Math.random()));
     };
+    var rollD20 = function(die, x) {
+        var colours = [ "orange", "green", "blue", "red"] ;
+        setTimeout(function() {
+            var digit = getRandomInt(1, 20);
+            die.innerHTML = `<div class="circle">${digit}</div>`;
+            die.className = [
+                "d20",
+                colours[getRandomInt(0, 3)]
+            ].join(" ");
+            if (--x > 10) {
+                rollD20(die, x);
+            }
+            else {
+                die.className = [
+                    "d20",
+                    colours[getRandomInt(0, 3)]
+                ].join(" ")
+                enableButtons();
+            }
+        }, ((500/x) + Math.random()));
+    };
     var rollD6 = function(die, x) {
         var colours = [ "orange", "green", "blue", "red"] ;
         setTimeout(function() {
@@ -141,6 +162,15 @@
                     die.className = "d100";
                     table.appendChild(die);
                     rollD100(die, 75);
+                }
+                break;
+
+            case ("d20"):
+                for (var x = 0; x < qty; x++) {
+                    var die = document.createElement("div");
+                    die.className = "d20";
+                    table.appendChild(die);
+                    rollD20(die, 75);
                 }
                 break;
 
